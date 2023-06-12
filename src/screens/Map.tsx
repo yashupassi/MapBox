@@ -14,7 +14,7 @@ Mapbox.setAccessToken(variable.mapboxToken);
 const defaultCoordinates = [-122.483696, 37.833818];
 
 function Map() {
-    const { container, bottomContainer, buttonContainer, buttonTitle, buttonSeparator }: any = getStyles()
+    const { container, bottomContainer, buttonContainer, buttonTitle, buttonSeparator, marker }: any = getStyles()
     const [locations, setLocations] = useState<any>([])
     const [buttonStatus, setButtonStatus] = useState<string>("")
     const [isLocationCaptured, setIsLocationCaptured] = useState<boolean>(true)
@@ -77,10 +77,9 @@ function Map() {
             <Mapbox.MapView style={{ flex: 1 }} >
                 <Mapbox.PointAnnotation
                     key="key1"
-                    id="id2"
-                    title="Test"
+                    id="id1"
                     coordinate={locations?.length ? locations[0] : defaultCoordinates}>
-                    <View style={{ height: Utils.scaleSize(25), width: Utils.scaleSize(25), backgroundColor: Colors.black, borderRadius:Utils.scaleSize(50) }} />
+                    <View style={marker} />
                         
                 </Mapbox.PointAnnotation>
 
@@ -114,7 +113,7 @@ function Map() {
                     key="key2"
                     id="id2"
                     coordinate={locations?.length ? locations[locations.length - 1] : defaultCoordinates}>
-                    <View style={{ height: Utils.scaleSize(25), width: Utils.scaleSize(25), backgroundColor: Colors.black, borderRadius:Utils.scaleSize(50) }} />
+                    <View style={marker} />
                         
 
                 </Mapbox.PointAnnotation>
@@ -178,6 +177,12 @@ const getStyles = () => {
             backgroundColor: Colors.white,
             width: Utils.scaleSize(2),
             height: Utils.scaleSize(45)
+        },
+        marker:{
+            height: Utils.scaleSize(25), 
+            width: Utils.scaleSize(25), 
+            backgroundColor: Colors.black, 
+            borderRadius:Utils.scaleSize(50)
         }
     })
 }
