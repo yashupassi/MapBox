@@ -18,7 +18,7 @@ function Map() {
     const [locations, setLocations] = useState<any>([])
     const [buttonStatus, setButtonStatus] = useState<string>("")
     const [isLocationCaptured, setIsLocationCaptured] = useState<boolean>(true)
-console.log("location is ==>>>", locations)
+
     useEffect(()=>{
         getUserLocation()
     },[])
