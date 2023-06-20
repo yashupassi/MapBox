@@ -15,7 +15,7 @@ Mapbox.setAccessToken(variable.mapboxToken);
 const defaultCoordinates = [-122.483696, 37.833818];
 
 function Map() {
-    const { container, bottomContainer, buttonContainer, buttonTitle, buttonSeparator, marker }: any = getStyles()
+    const { container, bottomContainer, buttonContainer, buttonTitle, buttonSeparator, marker, distanceText }: any = getStyles()
     const [locations, setLocations] = useState<any>([])
     const [buttonStatus, setButtonStatus] = useState<string>("")
     const [isLocationCaptured, setIsLocationCaptured] = useState<boolean>(true)
@@ -176,7 +176,7 @@ function Map() {
         <View style={container}>
             {renderMap}
             {renderBottomButtons}
-             <Text style={{marginVertical:Utils.scaleSize(20), textAlign:'center'}}>{`covered ${distance} meters in ${timeDifference} seconds`}</Text>
+             <Text style={distanceText}>{`covered ${distance} meters in ${timeDifference} seconds`}</Text>
         </View>
     )
 }
@@ -212,6 +212,10 @@ const getStyles = () => {
             width: Utils.scaleSize(25),
             backgroundColor: Colors.black,
             borderRadius: Utils.scaleSize(50)
+        },
+        distanceText:{
+            marginVertical:Utils.scaleSize(20), 
+            textAlign:'center'
         }
     })
 }
