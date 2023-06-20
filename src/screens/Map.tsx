@@ -113,7 +113,6 @@ function Map() {
                     id="id1"
                     coordinate={locations?.length ? locations[0] : defaultCoordinates}>
                     <View style={marker} />
-
                 </Mapbox.PointAnnotation>
 
 
@@ -148,7 +147,6 @@ function Map() {
                     coordinate={locations?.length ? locations[locations.length - 1] : defaultCoordinates}>
                     <View style={marker} />
 
-
                 </Mapbox.PointAnnotation>
             </Mapbox.MapView>
         )
@@ -173,7 +171,6 @@ function Map() {
         )
     }, [locations, isLocationCaptured, startTime])
 
-    console.log("distance===>>>>",distance, timeDifference)
 
     return (
         <View style={container}>
